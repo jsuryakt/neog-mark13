@@ -229,7 +229,7 @@ function findDiffInDays(birthDate, todaysDate) {
 
       // remaining days in this month
       birthDaySameYrDays += todaysDay;
-    } else if(todaysMonth - birthdayMonth < 1){
+    } else if(todaysMonth - birthdayMonth < 0){
         // if birthday is in future
         return -1;
     }else {
