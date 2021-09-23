@@ -39,12 +39,13 @@ function handleClick() {
     var totalHours = diffInDays * 24 + hourNow;
     var totalMins = totalHours * 60 + minsNow;
     var totalSecs = totalMins * 60 + secsNow;
+    var daysTillBirthday = findDaysTillBirthday(todaysDate, birthDate)
 
     if (diffInDays < 0) {
       output.style.display = "none";
       outputDaysDiff.innerText = "🤨 take birth and come here 🤨";
     } else {
-      output.innerText += `\n\nYou are ${diffInDays} days old 👶`;
+      output.innerText += `\n\nYou are ${diffInDays} days old 👶\n\n${daysTillBirthday} days until your birthday 🍰 yayy!`;
       outputDaysDiff.innerText = `😮 ${totalHours} hours \n😲 ${totalMins} mins \n🤯 ${totalSecs} secs`;
     }
   } else {
@@ -287,4 +288,9 @@ function daysCount(month, isLeap, day) {
     days += 1;
   }
   return days;
+}
+
+function findDaysTillBirthday(todaysDate, nextYrBirthday) {
+    nextYrBirthday.year = todaysDate.year + 1;
+    return findDiffInDays(todaysDate, nextYrBirthday)
 }
