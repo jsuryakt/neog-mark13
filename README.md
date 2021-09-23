@@ -4,7 +4,7 @@
 
 ## @neogcamp
 
-A website which checks if your birthdate is a palindrome, if not shows the next nearest palindrome.
+A website that checks if your birthdate is a palindrome if not shows the next nearest palindrome.
 
 <strong>It also shows the number of days you've been alive along with the number of days till your next birthday.</strong>
 Also displays the count of your zindagi in hours, mins, seconds.
