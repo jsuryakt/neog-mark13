@@ -34,6 +34,8 @@ function handleClick() {
 
     var diffInDays = findDiffInDays(birthDate, todaysDate);
 
+    console.log(diffInDays);
+
     var totalHours = diffInDays * 24 + hourNow;
     var totalMins = totalHours * 60 + minsNow;
     var totalSecs = totalMins * 60 + secsNow;
@@ -184,7 +186,7 @@ function findDiffInDays(birthDate, todaysDate) {
   var birthDayDiffYrDays = 0;
 
   if (todaysYear - birthdayYear > 1) {
-    // if year greater than 2
+    // if year diff greater than 2
 
     // except the birth year and current yr add all rest days in between
     for (var i = birthdayYear + 1; i < todaysYear; i++) {
@@ -227,11 +229,17 @@ function findDiffInDays(birthDate, todaysDate) {
 
       // remaining days in this month
       birthDaySameYrDays += todaysDay;
-    } else {
+    } else if(todaysMonth - birthdayMonth < 1){
+        // if birthday is in future
+        return -1;
+    }else {
       birthDaySameYrDays += todaysDay - birthdayDay;
       // same month days
     }
-  } else {
+  } else if(todaysYear - birthdayYear < 1){
+      return -1;
+  }
+  else {
     // one year diff
 
     // count (birthMonth + 1) till end of year
