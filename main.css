@@ -8,9 +8,11 @@
   --black: #000000;
 }
 
-header {
-  color: var(--primary-color);
-}
+header p{
+    color: var(--primary-color);
+    margin: 1rem;
+    padding: 1rem;
+  }
 
 html {
   scroll-behavior: smooth;
