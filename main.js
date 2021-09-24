@@ -1,7 +1,6 @@
 var input = document.querySelector("#input-date");
 var btn = document.querySelector("#btn-calculate");
 var output = document.querySelector("#output");
-var outputDays = document.querySelector("#output-days-diff");
 var outputDaysDiff = document.querySelector("#output-days-diff");
 var monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
@@ -9,7 +8,7 @@ btn.addEventListener("click", handleClick);
 
 function handleClick() {
   output.style.display = "block";
-  outputDays.style.display = "block";
+  outputDaysDiff.style.display = "block";
   output.style.color = "black";
 
   if (input.value != "") {
