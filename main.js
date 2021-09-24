@@ -41,6 +41,11 @@ function handleClick() {
     var totalSecs = totalMins * 60 + secsNow;
     var daysTillBirthday = findDaysTillBirthday(todaysDate, birthDate)
 
+    if (daysTillBirthday == 365) {
+      output.style.color = "green";
+      output.innerText += "\n\n🥳 Happy Birthday 🥳"
+    }
+
     if (diffInDays < 0) {
       output.style.display = "none";
       outputDaysDiff.innerText = "🤨 take birth and come here 🤨";
@@ -290,7 +295,21 @@ function daysCount(month, isLeap, day) {
   return days;
 }
 
-function findDaysTillBirthday(todaysDate, nextYrBirthday) {
-    nextYrBirthday.year = todaysDate.year + 1;
-    return findDiffInDays(todaysDate, nextYrBirthday)
+function findDaysTillBirthday(todaysDate, birthday) {
+  var nextBirthday = birthday;
+    if(birthday.month < todaysDate.month) {
+      nextBirthday.year = todaysDate.year + 1;
+    }
+    else if(birthday.month == todaysDate.month) {
+      if(birthday.day > todaysDate.day) {
+        nextBirthday.year  = todaysDate.year
+      }
+      else if (birthday.day <= todaysDate.day) {
+        nextBirthday.year = todaysDate.year + 1;
+      } 
+    }
+    else {
+      nextBirthday.year  = todaysDate.year
+    }
+    return findDiffInDays(todaysDate, nextBirthday)
 }
