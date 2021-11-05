@@ -217,7 +217,7 @@ function findDiffInDays(birthDate, todaysDate) {
     //if same yr birthdayYear==todayYear
 
     //   diff months days
-    if (todaysMonth - birthdayMonth > 1) {
+    if (todaysMonth - birthdayMonth >= 1) {
       // remaining days in that month
       birthDaySameYrDays += daysCount(
         birthdayMonth,
